@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXORA — решения для бизнеса</title>
+  <meta name="description" content="NEXORA — современные цифровые решения для бизнеса. Оставьте заявку и обсудите свой проект.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050505;
+      color: #f5f5f5;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(5, 5, 5, 0.78);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid #1d1d1d;
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 3px;
+    }
+
+    .logo span {
+      color: #777;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    nav a {
+      transition: .25s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .nav-button {
+      border: 1px solid #444;
+      padding: 11px 18px;
+      border-radius: 30px;
+      font-size: 13px;
+      transition: .25s;
+    }
+
+    .nav-button:hover {
+      background: white;
+      color: black;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 76px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #292929 0%, transparent 70%);
+      top: 5%;
+      right: -15%;
+      opacity: .55;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border: 1px solid #292929;
+      border-radius: 30px;
+      color: #aaa;
+      font-size: 12px;
+      margin-bottom: 28px;
+      background: #0b0b0b;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 12px white;
+    }
+
+    h1 {
+      font-size: clamp(52px, 9vw, 105px);
+      line-height: .9;
+      letter-spacing: -5px;
+      margin-bottom: 32px;
+    }
+
+    h1 span {
+      color: #555;
+    }
+
+    .hero-text {
+      max-width: 590px;
+      color: #999;
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 25px;
+      border-radius: 8px;
+      border: 1px solid #333;
+      font-weight: 700;
+      font-size: 14px;
+      transition: .25s;
+    }
+
+    .button-primary {
+      background: white;
+      color: black;
+      border-color: white;
+    }
+
+    .button-primary:hover {
+      background: #d9d9d9;
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      color: white;
+    }
+
+    .button-secondary:hover {
+      background: #151515;
+      transform: translateY(-2px);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 110px 0;
+      border-top: 1px solid #171717;
+    }
+
+    .section-label {
+      color: #666;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: clamp(35px, 6vw, 65px);
+      letter-spacing: -2px;
+      margin-bottom: 55px;
+    }
+
+    /* SERVICES */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #111, #080808);
+      border: 1px solid #202020;
+      border-radius: 16px;
+      padding: 30px;
+      min-height: 260px;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #444;
+    }
+
+    .card-number {
+      color: #555;
+      font-size: 13px;
+      margin-bottom: 55px;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* ADVANTAGES */
+
+    .advantages {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: #222;
+      border: 1px solid #222;
+    }
+
+    .advantage {
+      background: #080808;
+      padding: 35px;
+    }
+
+    .advantage h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .advantage p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* FORM */
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .contact-text {
+      color: #777;
+      max-width: 430px;
+    }
+
+    form {
+      background: #0c0c0c;
+      border: 1px solid #222;
+      padding: 30px;
+      border-radius: 16px;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      color: #777;
+      margin-bottom: 7px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      background: #050505;
+      border: 1px solid #292929;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      outline: none;
+      font-family: inherit;
+      transition: .2s;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #777;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    form button {
+      width: 100%;
+      margin-top: 5px;
+      cursor: pointer;
+    }
+
+    .success {
+      display: none;
+      margin-top: 15px;
+      color: #aaa;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid #171717;
+      padding: 30px 0;
+      color: #555;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 750px) {
+
+      nav {
+        display: none;
+      }
+
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      h1 {
+        font-size: 58px;
+        letter-spacing: -3px;
+      }
+
+      .hero-text {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .services,
+      .advantages,
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-wrapper {
+        gap: 40px;
+      }
+
+      .card {
+        min-height: 220px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#" class="logo">NEXORA<span>.</span></a>
+
+    <nav>
+      <a href="#services">Услуги</a>
+      <a href="#about">О нас</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+
+    <a href="#contact" class="nav-button">Оставить заявку</a>
+  </div>
+</header>
+
+
+<main>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="badge">
+          <span class="dot"></span>
+          Открыты к новым проектам
+        </div>
+
+        <h1>
+          Бизнес.<br>
+          <span>Новый уровень.</span>
+        </h1>
+
+        <p class="hero-text">
+          NEXORA помогает превращать идеи в работающие цифровые решения.
+          Просто. Современно. Результативно.
+        </p>
+
+        <div class="buttons">
+          <a href="#contact" class="button button-primary">
+            Обсудить проект →
+          </a>
+
+          <a href="#services" class="button button-secondary">
+            Наши услуги
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SERVICES -->
+
+  <section id="services">
+    <div class="container">
+
+      <div class="section-label">01 / Услуги</div>
+
+      <h2 class="section-title">
+        Что мы можем<br>сделать
+      </h2>
+
+      <div class="services">
+
+        <div class="card">
+          <div class="card-number">01</div>
+          <h3>Цифровые решения</h3>
+          <p>
+            Создание удобных цифровых инструментов
+            для автоматизации и развития бизнеса.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">02</div>
+          <h3>Сайты</h3>
+          <p>
+            Современные сайты и посадочные страницы,
+            которые помогают получать клиентов.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">03</div>
+          <h3>Автоматизация</h3>
+          <p>
+            Упрощаем рутинные процессы и создаём
+            решения, которые экономят время.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section id="about">
+    <div class="container">
+
+      <div class="section-label">02 / Почему NEXORA</div>
+
+      <h2 class="section-title">
+        Меньше сложности.<br>
+        Больше результата.
+      </h2>
+
+      <div class="advantages">
+
+        <div class="advantage">
+          <h3>01 — Простота</h3>
+          <p>
+            Не перегружаем проекты ненужными функциями.
+            Оставляем только то, что действительно работает.
+          </p>
+        </div>
+
+        <div class="advantage">
+          <h3>02 — Скорость</h3>
+          <p>
+            Быстро превращаем идею в готовый продукт
+            и постепенно развиваем его вместе с бизнесом.
+          </p>
+        </div>
+
+        <div class="advantage">
+          <h3>03 — Современность</h3>
+          <p>
+            Используем современные технологии и
+            актуальный подход к дизайну.
+          </p>
+        </div>
+
+        <div class="advantage">
+          <h3>04 — Фокус на результате</h3>
+          <p>
+            Главная цель — не просто красивый продукт,
+            а реальная польза для бизнеса.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+    <div class="container">
+
+      <div class="contact-wrapper">
+
+        <div>
+          <div class="section-label">03 / Контакты</div>
+
+          <h2 class="section-title">
+            Есть идея?<br>
+            Давайте обсудим.
+          </h2>
+
+          <p class="contact-text">
+            Оставьте свои контакты и кратко расскажите,
+            что хотите сделать. Мы свяжемся с вами
+            и обсудим возможные варианты.
+          </p>
+        </div>
+
+
+        <form id="contactForm">
+
+          <div class="field">
+            <label>Ваше имя</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Александр"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label>Телефон или Telegram</label>
+            <input
+              type="text"
+              name="contact"
+              placeholder="+7 900 000-00-00"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label>Что вас интересует?</label>
+            <textarea
+              name="message"
+              placeholder="Расскажите немного о вашей задаче..."
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="button button-primary"
+          >
+            Отправить заявку →
+          </button>
+
+          <div class="success" id="success">
+            Спасибо! Заявка принята.
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+
+<footer>
+  <div class="container footer-inner">
+    <div>© 2026 NEXORA</div>
+    <div>Digital solutions for business</div>
+  </div>
+</footer>
+
+
+<script>
+  const form = document.getElementById("contactForm");
+  const success = document.getElementById("success");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    success.style.display = "block";
+
+    form.reset();
+
+    setTimeout(() => {
+      success.style.display = "none";
+    }, 5000);
+  });
+</script>
+
+</body>
+  </html>
